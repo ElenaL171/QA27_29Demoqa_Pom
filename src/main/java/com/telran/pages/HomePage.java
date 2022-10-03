@@ -14,8 +14,8 @@ public class HomePage extends BasePage {
     WebElement bookStoreAppTitle;
 
     public BookStorePage selectBookStoreApp() {
-        //clickWithJSExecutor(bookStoreAppTitle, 0, 600);//
-        clickWithAction(bookStoreAppTitle);
+        clickWithJSExecutor(bookStoreAppTitle, 0, 600);
+        //clickWithAction(bookStoreAppTitle);//
         return new BookStorePage(driver);
     }
 
