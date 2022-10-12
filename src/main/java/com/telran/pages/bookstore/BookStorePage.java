@@ -1,5 +1,6 @@
-package com.telran.pages;
+package com.telran.pages.bookstore;
 
+import com.telran.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,11 +36,11 @@ public class BookStorePage extends BasePage {
         click(nameOfBook);
         return this;
     }
-
-    @FindBy(css = "text-right.fullButton")
+    @FindBy(css = ".text-right.fullButton")
     WebElement addToCollectionButton;
+
     public BookStorePage clickOnAddBookButton() {
-        clickWithJSExecutor(addToCollectionButton,0,300);
+        clickWithJSExecutor(addToCollectionButton,0,500);
         pause(500);
         return this;
     }

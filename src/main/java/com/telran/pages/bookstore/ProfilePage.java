@@ -1,5 +1,6 @@
-package com.telran.pages;
+package com.telran.pages.bookstore;
 
+import com.telran.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,14 +31,14 @@ public class ProfilePage extends BasePage {
     @FindBy(id ="delete-record-undefined")
     List<WebElement> trashList;
 
-    @FindBy(xpath = "//button[.'OK']")
+    @FindBy(xpath = "//button[.='OK']")
     WebElement okButton;
 
     public ProfilePage deleteBook() {
         trashList.get(0).click();
         pause(500);
         click(okButton);
-        pause(500);
+        pause(1000);
         acceptAlert();
         return this;
     }

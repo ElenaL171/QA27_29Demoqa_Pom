@@ -6,9 +6,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class TestBase {
-    WebDriver driver;
+    public WebDriver driver;
 
     @BeforeMethod
     public void init(){
