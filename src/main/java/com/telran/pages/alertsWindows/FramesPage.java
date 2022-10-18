@@ -1,11 +1,10 @@
-package com.telran.tests;
+package com.telran.pages.alertsWindows;
 
 import com.telran.pages.BasePage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.BeforeMethod;
 
 import java.util.List;
 
