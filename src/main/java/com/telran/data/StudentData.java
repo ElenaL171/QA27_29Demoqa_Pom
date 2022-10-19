@@ -7,7 +7,7 @@ public class StudentData {
     public static final String LAST_NAME="Horst";
     public static final String EMAIL="G124@gmail.com";
     public static final String GENDER="Male";
-    public static final String TEL_NUM="23244534";
+    public static final String TEL_NUM="2324453554";
     public static final String DATE="10.12.2002";
     public static final String[] SUBJECTS={"Maths", "Physics", "English"};
     public static final String[] HOBBIES={"Sports", "Reading"};

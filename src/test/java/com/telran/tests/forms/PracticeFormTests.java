@@ -7,6 +7,7 @@ import com.telran.pages.forms.PracticeFormPage;
 import com.telran.tests.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,18 +20,19 @@ public class PracticeFormTests extends TestBase {
 
     @Test
     public void createNewStudentTest() {
-        new PracticeFormPage(driver).enterPersonalData(StudentData.FIRST_NAME,StudentData.LAST_NAME,
+        new PracticeFormPage(driver).hideIframes().enterPersonalData(StudentData.FIRST_NAME, StudentData.LAST_NAME,
                 StudentData.EMAIL,
-                StudentData.TEL_NUM,StudentData.ADDRESS);
-        new PracticeFormPage(driver).selectGender(StudentData.GENDER)
-              .typeOfDate(StudentData.DATE)
+                StudentData.TEL_NUM, StudentData.ADDRESS);
+        new PracticeFormPage(driver).selectGender(StudentData.GENDER).chooseDate("May", "2011", "13")
+                .typeOfDate(StudentData.DATE)
                 .addSubject(StudentData.SUBJECTS)
-               .chooseHobby(StudentData.HOBBIES)
-               .uploadFile(StudentData.PHOTO_PATH);
-               /*  .enterState(StudentData.STATE)
-                .enterCity(StudentData.CITY);
-    }*/
+                .chooseHobby(StudentData.HOBBIES)
+                .uploadFile(StudentData.PHOTO_PATH)
+                .enterState(StudentData.STATE)
+                .enterCity(StudentData.CITY).submit();
+        Assert.assertTrue(new PracticeFormPage(driver).getModalTitle()
+                .contains("Thanks for submitting the form"));
+        new PracticeFormPage(driver).closeModalDialog();
     }
-
-
 }
+

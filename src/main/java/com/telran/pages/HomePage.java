@@ -35,6 +35,7 @@ public class HomePage extends BasePage {
         clickWithJSExecutor(elements, 0, 300);
         return new SidePanelPage(driver);
     }
+
     @FindBy(xpath = "//*[@class='category-cards']/*[4]")
     WebElement widgets;
 
@@ -48,6 +49,14 @@ public class HomePage extends BasePage {
 
     public SidePanelPage selectForms() {
         clickWithJSExecutor(forms, 0, 300);
+        return new SidePanelPage(driver);
+    }
+
+    @FindBy(xpath = "//h5[.='Interactions']")
+    WebElement interactions;
+
+    public SidePanelPage selectInteractions() {
+        clickWithJSExecutor(interactions, 0, 300);
         return new SidePanelPage(driver);
     }
 }
