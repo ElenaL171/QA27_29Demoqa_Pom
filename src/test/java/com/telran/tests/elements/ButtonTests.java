@@ -1,6 +1,6 @@
 package com.telran.tests.elements;
 
-import com.telran.pages.ButtonPage;
+import com.telran.pages.elements.ButtonPage;
 import com.telran.pages.HomePage;
 import com.telran.pages.SidePanelPage;
 import com.telran.tests.TestBase;

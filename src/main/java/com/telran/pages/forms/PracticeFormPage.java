@@ -14,6 +14,12 @@ public class PracticeFormPage extends BasePage {
         super(driver);
     }
 
+    public PracticeFormPage hideIframes() {
+        hideAd();
+        hideFooter();
+        return this;
+    }
+
     @FindBy(id = "firstName")
     WebElement firstName;
     @FindBy(id = "lastName")
@@ -25,7 +31,7 @@ public class PracticeFormPage extends BasePage {
     @FindBy(id = "currentAddress")
     WebElement currentAddress;
 
-    public PracticeFormPage enterPersonalData(String name, String famName, String eMail, String telephon, String address) {
+    public PracticeFormPage enterPersonalData(String name, String famName, String eMail, String telephon) {
         click(firstName);
         firstName.sendKeys(name);
         firstName.sendKeys(Keys.ENTER);
@@ -38,15 +44,6 @@ public class PracticeFormPage extends BasePage {
         click(userNumber);
         userNumber.sendKeys(telephon);
         userNumber.sendKeys(Keys.ENTER);
-        click(currentAddress);
-        currentAddress.sendKeys(address);
-        currentAddress.sendKeys(Keys.ENTER);
-        return this;
-    }
-
-    public PracticeFormPage hideIframes() {
-        hideAd();
-        hideFooter();
         return this;
     }
 
@@ -176,17 +173,24 @@ public class PracticeFormPage extends BasePage {
         clickWithJSExecutor(close, 0, 700);
         return this;
     }
+
     @FindBy(css = ".react-datepicker__month-select")
     WebElement month;
     @FindBy(css = ".react-datepicker__year-select")
     WebElement year;
-    public PracticeFormPage chooseDate(String m, String y, String day){
+
+    public PracticeFormPage chooseDate(String m, String y, String day) {
         click(dateOfBirthInput);
         Select select = new Select(month);
         select.selectByVisibleText(m);
-        Select select1=new Select(year);
+        Select select1 = new Select(year);
         select1.selectByVisibleText(y);
-        driver.findElement(By.xpath("//div[@class='react-datepicker__week']//div[.='"+ day + "']"));
+        driver.findElement(By.xpath("//div[@class='react-datepicker__week']//div[.='" + day + "']"));
+        return this;
+    }
+
+    public PracticeFormPage addAddress(String address) {
+        typeWithJSExecutor(currentAddress, address, 0, 300);
         return this;
     }
 }
